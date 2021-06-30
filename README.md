@@ -39,13 +39,11 @@ cd hyp3r/
   - Copy the contents of the `apache` folder to your webserver's page folder.
   - Edit lines `2`, `3` and `4` inside `http.ps1` as follows: 
 
-        ```
-	
-        $verurl = 'http://your_website_url_or_ip/script.txt'
-        $url = 'http://your_website_url_or_ip'
-        $stop = 'the syntax of your choice to force stop the payload on the target machine'
-	
-        ```
+```
+$verurl = 'http://your_website_url_or_ip/script.txt'
+$url = 'http://your_website_url_or_ip'
+$stop = 'the syntax of your choice to force stop the payload on the target machine'
+```
 
   - Save and close the file. The installation is now complete!
 
