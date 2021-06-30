@@ -1,2 +1,2 @@
 # hyp3r
-Advanced HTTP Backdoor
+hyp3r is a basic RAT written in powershell. 
