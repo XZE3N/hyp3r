@@ -1,6 +1,9 @@
 # hyp3r
-hyp3r is a basic RAT written in powershell. This
+<hr>
+hyp3r is a basic RAT written in powershell.
+<br>
 ###DISCLAIMER: THIS PROJECT IS FOR ACADEMIC PURPOSES ONLY. THE DEVELOPERS TAKE NO RESPONSIBILITY FOR ILLEGAL USAGE AND/OR POTENTIAL HARMS.###
+<hr>
 #Requirements
   -PHP 8.0.2 (might work on older versions as well)
   -apache web server
