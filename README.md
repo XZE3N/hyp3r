@@ -2,7 +2,7 @@
 
 <img src=https://upload.wikimedia.org/wikipedia/commons/2/2f/PowerShell_5.0_icon.png>
 
-### hyp3r is a basic RAT written in powershell.
+## hyp3r is a basic RAT written in powershell.
 
 **DISCLAIMER: THIS PROJECT IS FOR ACADEMIC PURPOSES ONLY. THE DEVELOPERS TAKE NO RESPONSIBILITY FOR ILLEGAL USAGE AND/OR POTENTIAL HARMS.**
 
