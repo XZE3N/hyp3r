@@ -40,19 +40,21 @@
             // Open The Hosts File As An Array
             $array = explode("\n", file_get_contents('data/data.txt'));
             for($i=0; $i<=count(file('data/data.txt'))-1; $i++) {
-                $line = $array[$i]; $data = explode(" ", $line);
-                echo '<tr>';
-                // Change The Time Zone To The Hosts Time
-                date_default_timezone_set('Europe/Bucharest');
-                $date = date('YmdHis', time());
-                if($date-$data[5]<=100) { // If Less Than 100 Seconds Have Passed
-                    echo "<td><span id='online'></span></td>"; // The Bot Is Online
-                }
-                else echo "<td><span id='offline'></span></td>"; // The Bot Is Offline
-                // Increment The Value 4 If More Data String Are Needed
-                for($j=1; $j<=4; $j++) {
-                    $str = $data[$j];
-                    echo '<td>' . $str . '</td>';
+                if($array[$i] != null) {
+                    $line = $array[$i]; $data = explode(" ", $line);
+                    echo '<tr>';
+                    // Change The Time Zone To The Hosts Time
+                    date_default_timezone_set('Europe/Bucharest');
+                    $date = date('YmdHis', time());
+                    if($date-$data[5]<=100) { // If Less Than 100 Seconds Have Passed
+                        echo "<td><span id='online'></span></td>"; // The Bot Is Online
+                    }
+                    else echo "<td><span id='offline'></span></td>"; // The Bot Is Offline
+                    // Increment The Value 4 If More Data String Are Needed
+                    for($j=1; $j<=4; $j++) {
+                        $str = $data[$j];
+                        echo '<td>' . $str . '</td>';
+                    }
                 }
             }
             echo '</tr>';
