@@ -1,0 +1,177 @@
+:root {
+    font-size: 18px;
+    --bg-primary: #202020;
+    --bg-accent: #ea6153;
+    --bg-secondary: #FFF;
+    --bg-shade: #f3f3f3;
+    --text-primary: #222;
+    --text-secondary: #111;
+    --negative: red;
+    --positive: #15ce43;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 2rem;
+    background: var(--bg-primary);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+#table {
+    width: 90vw;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    border: none;
+    margin: 0 auto;
+    font-size: 18px;
+}
+  
+#table th {
+    background: var(--bg-accent);
+    color: var(--bg-secondary);
+    text-align: left;
+    padding: 12px;
+}
+  
+#table tr:nth-child(even) {background: var(--bg-shade)}
+#table tr:nth-child(odd) {background: var(--bg-secondary)}
+  
+#table td {
+    padding: 4px 12px;
+}
+  
+.status {
+width: 12px;
+}
+  
+#online {
+    background-color: var(--positive);
+    margin: 0 auto;
+    height: 11px;
+    width: 11px;
+    border-radius: 50%;
+    display: flex;
+}
+  
+#offline {
+    background-color: var(--negative);
+    margin: 0 auto;
+    height: 11px;
+    width: 11px;
+    border-radius: 50%;
+    display: flex;
+}
+
+#codeBlock {
+    resize: none;
+    overflow: hidden;
+    width: 90vw;
+    height: 30vh;
+    padding: 0;
+    margin: 0;
+}
+
+#form {
+    display: block;
+    background-color: var(--bg-primary);
+    width: 90vw;
+    height: calc(30vh + 4rem);
+}
+
+#wrapper {
+    display: block;
+    background-color: var(--bg-accent);
+    width: 90vw;
+    height: calc(30vh + 1.53rem);
+    position: relative;
+}
+.modified {
+    background-color: var(--negative);
+    position: absolute;
+    padding-left: 0.3rem;
+    padding-right: 0.5rem;
+    padding-top: 0.2rem;
+    height: 1.333rem;
+    font-size: 14px;
+    font-weight: 600;
+    top: 30vh; left: 0; 
+    display: block;
+}
+
+.modified:after {
+    color: var(--bg-shade);
+    content: "\2716   Not Saved";
+}
+
+.saved {
+    background-color: var(--positive);
+    position: absolute;
+    padding-left: 0.3rem;
+    padding-right: 0.5rem;
+    padding-top: 0.2rem;
+    height: 1.333rem;
+    font-size: 14px;
+    font-weight: 600;
+    top: 30vh; left: 0; 
+    display: block;
+}
+
+.saved:after {
+    color: var(--text-primary);
+    content: "\2713   Saved";
+}
+
+#submit {
+    width: 6rem;
+    height: 1.75rem;
+    outline: 0;
+    border: 0;
+    background-color: var(--bg-shade);
+    border-radius: 2px;
+    margin-top: 1rem;
+}
+
+.area {
+    outline: 0;
+    display: block;
+    background: var(--bg-secondary);
+    font-size: 18px;
+    font-family: 'Open Sans', sans-serif;
+    color: var(--text-primary);
+    border-radius: 0.2rem;
+    overflow-y: scroll;
+    height: 30vh;
+    width: 90vw;
+    resize: none; /* Remove this if you want the user to resize the textarea */
+}
+  
+.dot {
+    display: inline-block;
+    text-align: center;
+    font-size: 14px;
+    background-color: var(--positive);
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    margin-right: 10px;
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+  
+.response-header {
+    display: block;
+    color: var(--text-primary);
+    background-color: var(--bg-shade);
+    margin: 0;
+    padding: 5px;
+    font-size: 16px;
+}
+
+/*.recent {
+     Working On It
+}*/
