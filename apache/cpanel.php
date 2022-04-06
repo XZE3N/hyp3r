@@ -18,8 +18,10 @@
     <script src="js/script.js"></script>
     <!-- ################ Import Dependencies ################ -->
     <!-- Import highlight.js -->
-        <link rel="stylesheet" href="js/highlight/styles/default.min.css">
-        <script src="js/highlight/highlight.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/highlight.min.js"></script>
+    <!-- Import PowerShell -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/languages/powershell.min.js"></script>
     <!-- Import Code-Input From WebCoder49's CDN -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/WebCoder49/code-input@1.0/code-input.css">
         <script src="https://cdn.jsdelivr.net/gh/WebCoder49/code-input@1.0/code-input.js"></script>
