@@ -2,7 +2,7 @@
 
 <img src=https://upload.wikimedia.org/wikipedia/commons/2/2f/PowerShell_5.0_icon.png>
 
-## hyp3r is a basic RAT written in powershell.
+## hyp3r is a basic Remote Access Tool (RAT) written in powershell.
 
 **DISCLAIMER: THIS PROJECT IS FOR ACADEMIC PURPOSES ONLY. THE DEVELOPERS TAKE NO RESPONSIBILITY FOR ILLEGAL USAGE AND/OR POTENTIAL HARMS.**
 
@@ -10,25 +10,25 @@
 
 ## Requirements
   - PHP 8.0.2 (might work on older versions as well).
-  - apache web server.
-  - powershell version 5.1 (might work on older versions as well) installed on the target computer for cmdlets to run.
+  - Apache web server.
+  - PowerShell version 5.1 (might work on older versions as well) installed on the target computer (Required for cmdlets to run).
 
 ## Features
-  - webGUI.
-  - live target status.
-  - remote shell execution.
-  - multi-target support (the script can handle as many targets as your server can).
-  - simple and easy to customize scripts.
+  - WebGUI.
+  - Live target status.
+  - Remote shell execution.
+  - Multi-target support (The script can handle as many targets as your server can).
+  - Simple and easy to customize scripts.
 
 ## Notes
-  - the timezone of both the server and the payload are set to GTB Standard Time so take that into account if you want to modify the inner workings of the script.
-  - remember to modify the parameters inside the payload (`http.ps1`) to suit your needs.
+  - The timezone of both the server and the payload are set to GTB Standard Time so take that into account if you want to modify the inner workings of the script.
+  - Remember to modify the parameters inside the payload (`http.ps1`) to suit your needs.
 
 ## Installation
 
 ### 1. Clone this repository
 
-You can use git to clone this repository or download .zip file from GitHub.
+You can use git to clone this repository or download the .zip file from GitHub.
 
 ```bash
 git clone https://github.com/xze3n/hyp3r.git
@@ -70,7 +70,7 @@ if($env:COMPUTERNAME -eq "TARGET-PC") {
 	echo "now it will only be executed by targets with the user TARGET-PC"
 }
 ```
-  - If the `COMPUTERNAME` identifier is way to simple for your needs and it brings up problems you can use the scripts unique identifier composed of the biosid hddid and uuid of the target computer
+  - If the `COMPUTERNAME` identifier is way to simple for your needs and it brings up problems you can use the scripts unique identifier composed of the biosid, hddid and uuid of the target computer
 
 ```powershell
 $a=Get-WmiObject win32_bios | Format-List SerialNumber | out-string; $id_bios=$a.split(' ')[2].Trim(); #bios id
