@@ -11,8 +11,6 @@
 
 **DISCLAIMER: THIS PROJECT IS FOR ACADEMIC PURPOSES ONLY. THE DEVELOPERS TAKE NO RESPONSIBILITY FOR ILLEGAL USAGE AND/OR POTENTIAL HARMS.**
 
-<hr>
-
 ## Requirements
   - PHP 8.0.2 (might work on older versions as well).
   - Apache web server.
