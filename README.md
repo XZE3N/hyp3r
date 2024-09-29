@@ -5,9 +5,7 @@
 ![GitHub Issues or Pull Requests](https://img.shields.io/github/issues/XZE3N/hyp3r)
 ![GitHub contributors](https://img.shields.io/github/contributors/XZE3N/hyp3r)
 
-<p align="center">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/PowerShell_5.0_icon.png" alt="PowerShell" />
-</p>
+<img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/PowerShell_5.0_icon.png" alt="PowerShell" />
 
 ## hyp3r is a basic Remote Access Tool (RAT) written in powershell.
 
